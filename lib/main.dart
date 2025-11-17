@@ -1,23 +1,26 @@
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'config/router.dart'; // Ton fichier routerProvider
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  Widget build(BuildContext context, WidgetRef ref) {
+    final router = ref.watch(routerProvider); // Récupère GoRouter
+
+    return MaterialApp.router(
       title: 'SenImmo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.indigo,
         scaffoldBackgroundColor: const Color(0xFFF8FAFC),
       ),
-      home: const HomeScreen(),
+      routerConfig: router, // Utilisation de GoRouter
     );
   }
 }
