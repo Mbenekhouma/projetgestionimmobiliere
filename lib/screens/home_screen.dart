@@ -15,9 +15,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String activeTab = 'accueil';
   String selectedType = 'vente';
   String selectedCategory = '';
+  final FocusNode _searchFocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: ListView(
 
             children: [
-              HeaderWidget(),
-
-              // === SECTION AVEC IMAGE DE BACKGROUND ===
+              const HeaderWidget(),
               Container(
                 width: double.infinity,
                 decoration: const BoxDecoration(
@@ -47,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: TextStyle(
                         fontSize: 26,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white, // texte visible sur fond
+                        color: Colors.white,
                       ),
                     ),
                     const Text(
@@ -58,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    SearchBarWidget(),
+                    SearchBarWidget(focusNode: _searchFocusNode),
                     const SizedBox(height: 16),
                     TypeButtonsWidget(
                       selectedType: selectedType,
@@ -67,8 +65,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-
-              // === Fin du background ===
               const SizedBox(height: 20),
             CategoryWidget(
               selectedCategory: selectedCategory,
@@ -88,9 +84,15 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       bottomNavigationBar: BottomNavbarWidget(
-        activeTab: activeTab,
-        onTabChange: (tab) => setState(() => activeTab = tab),
+        activeTab: 'accueil',
+        searchFocusNode: _searchFocusNode, // le focus sera géré directement dans BottomNavbarWidget
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _searchFocusNode.dispose();
+    super.dispose();
   }
 }

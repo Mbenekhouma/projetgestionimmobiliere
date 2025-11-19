@@ -256,16 +256,10 @@ class _CategoryScreenState extends State<CategoryScreen> {
           ],
         ),
       ),
+      // Appel du widget bottom_navbar_widget
       bottomNavigationBar: BottomNavbarWidget(
-        activeTab: activeTab,
-        onTabChange: (tab) {
-          setState(() => activeTab = tab);
-
-          // ➜ NAVIGATION selon l'onglet
-          if (tab == 'accueil') {
-            context.go('/home');       // ou context.goNamed('home');
-          }
-        },
+        activeTab: 'category',
+        //searchFocusNode: _searchFocusNode,
       ),
 
     );
