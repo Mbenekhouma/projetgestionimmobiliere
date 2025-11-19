@@ -5,6 +5,7 @@ import '../widgets/category_widget.dart';
 import '../widgets/type_buttons_widget.dart';
 import '../widgets/bottom_navbar_widget.dart';
 import '../widgets/nos_produits_widget.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,11 +21,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print("🔥 HomeScreen build() appelé");
     return Scaffold(
       backgroundColor: const Color(0xFFF3F4FF),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
+        child: ListView(
+
             children: [
               HeaderWidget(),
 
@@ -68,13 +70,22 @@ class _HomeScreenState extends State<HomeScreen> {
 
               // === Fin du background ===
               const SizedBox(height: 20),
-              CategoryWidget(
-                selectedCategory: selectedCategory,
-                onSelect: (id) => setState(() => selectedCategory = id),
-              ),
-              NosProduitsWidget(selectedType: selectedType),
+            CategoryWidget(
+              selectedCategory: selectedCategory,
+              onSelect: (id) {
+                setState(() => selectedCategory = id);
+
+                // Navigation vers la page CategoryScreen
+                context.goNamed(
+                  'category',                       // name de la route
+                  pathParameters: {'category': id}, // on passe la catégorie
+                );
+              },
+            ),
+
+            NosProduitsWidget(selectedType: selectedType),
             ],
-          ),
+
         ),
       ),
       bottomNavigationBar: BottomNavbarWidget(

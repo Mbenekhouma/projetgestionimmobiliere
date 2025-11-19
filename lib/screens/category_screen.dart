@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projetgestionimmobilier/screens/bien_screen.dart';
 import 'package:projetgestionimmobilier/widgets/header_widget.dart';
+import 'package:go_router/go_router.dart';
 
 class CategoryScreen extends StatelessWidget {
   final String category;
@@ -95,24 +96,22 @@ class CategoryScreen extends StatelessWidget {
                                   Text('${bien['prix']}', style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Color(0xFF4CAF50))),
                                   ElevatedButton(
                                     onPressed: () {
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => BienScreen(bien: bien),
-                                          ),
-                                        );
-                                      };
-                                      style: ElevatedButton.styleFrom(
+                                      context.pushNamed(
+                                        'bien',         // le name de la route
+                                        extra: bien,    // on passe le Map bien ici
+                                      );
+                                    },
+                                    style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.indigo,
                                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                                       elevation: 0,
-                                      );
-                                      child: const Text('Détails', style: TextStyle(color: Colors.white));
-                                    },
-                                    style: ElevatedButton.styleFrom(backgroundColor:  Colors.indigo,  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)), elevation: 0),
-                                    child: const Text('Détails',style:const TextStyle( color:Colors.white)),
-                                  ),
+                                    ),
+                                    child: const Text(
+                                      'Détails',
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  )
+
                                 ],
                               ),
                             ],

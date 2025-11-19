@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BienScreen extends StatelessWidget {
   final Map<String, dynamic> bien;
@@ -102,9 +103,9 @@ class BienScreen extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12)),
                 ),
-                icon: const Icon(Icons.phone),
+                icon: const Icon(Icons.money,color: Colors.white,),
                 label: const Text(
-                  "Contacter l'agence",
+                  "Acheter",
                   style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
               ),
