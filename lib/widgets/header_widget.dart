@@ -38,10 +38,10 @@ class HeaderWidget extends StatelessWidget {
             ElevatedButton.icon(
               onPressed: () {},
               label: const Text("Connexion",
-              style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 18,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
                 ),
               ),
               style: ElevatedButton.styleFrom(
