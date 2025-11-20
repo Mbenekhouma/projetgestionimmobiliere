@@ -4,6 +4,8 @@ import '../widgets/bottom_navbar_widget.dart';
 import '../widgets/user_profile_header.dart';
 import '../widgets/search_and_add_bar.dart';
 import '../widgets/property_list_view.dart';
+import 'add_property_page.dart';
+import 'edit_property_page.dart';
 import 'home_screen.dart';
 
 class UserProfilePage extends StatefulWidget {
@@ -76,39 +78,36 @@ class _UserProfilePageState extends State<UserProfilePage> {
     });
   }
 
-  void _addProperty() {
-    setState(() {
-      final newProperty = PropertyModel(
-        id: DateTime.now().millisecondsSinceEpoch.toString(),
-        title: "Nouvelle propriété",
-        address: "Adresse inconnue",
-        price: 100000,
-        type: "Appartement",
-        surface: 50,
-        imageUrl: null,
-      );
-      _properties.add(newProperty);
-      _filteredProperties = _properties;
-    });
+  void _addProperty() async {
+    final newProperty = await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const AddPropertyPage()),
+    );
+
+    if (newProperty != null) {
+      setState(() {
+        _properties.add(newProperty);
+        _filteredProperties = _properties;
+      });
+    }
   }
 
-  void _editProperty(PropertyModel property) {
-    // Exemple simple
-    setState(() {
-      final index = _properties.indexWhere((p) => p.id == property.id);
-      if (index != -1) {
-        _properties[index] = PropertyModel(
-          id: property.id,
-          title: "${property.title} (modifié)",
-          address: property.address,
-          price: property.price,
-          type: property.type,
-          surface: property.surface,
-          imageUrl: property.imageUrl,
-        );
-      }
-      _filteredProperties = _properties;
-    });
+
+  void _editProperty(PropertyModel property) async {
+    final updatedProperty = await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => EditPropertyPage(property: property)),
+    );
+
+    if (updatedProperty != null) {
+      setState(() {
+        final index = _properties.indexWhere((p) => p.id == property.id);
+        if (index != -1) {
+          _properties[index] = updatedProperty;
+        }
+        _filteredProperties = _properties;
+      });
+    }
   }
 
   void _deleteProperty(PropertyModel property) {
