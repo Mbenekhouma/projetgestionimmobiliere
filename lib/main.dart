@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       //on retire le scaffold et on le remplace par le homescreen
-      //home: HomeScreen(),
-      home: UserProfilePage(),
+      home: HomeScreen(),
+      //home: UserProfilePage(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.indigo,

@@ -27,45 +27,45 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
         child: ListView(
 
-            children: [
-              const HeaderWidget(),
-              Container(
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/fond3.jpg'),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 16),
-                child: Column(
-                  children: [
-                    const Text(
-                      "Trouvez votre bien idéal",
-                      style: TextStyle(
-                        fontSize: 26,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                    const Text(
-                      "chez SenImmo",
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    SearchBarWidget(focusNode: _searchFocusNode),
-                    const SizedBox(height: 16),
-                    TypeButtonsWidget(
-                      selectedType: selectedType,
-                      onChange: (type) => setState(() => selectedType = type),
-                    ),
-                  ],
+          children: [
+            const HeaderWidget(),
+            Container(
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/fond3.jpg'),
+                  fit: BoxFit.cover,
                 ),
               ),
-              const SizedBox(height: 20),
+              padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 16),
+              child: Column(
+                children: [
+                  const Text(
+                    "Trouvez votre bien idéal",
+                    style: TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const Text(
+                    "chez SenImmo",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  SearchBarWidget(focusNode: _searchFocusNode),
+                  const SizedBox(height: 16),
+                  TypeButtonsWidget(
+                    selectedType: selectedType,
+                    onChange: (type) => setState(() => selectedType = type),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20),
             CategoryWidget(
               selectedCategory: selectedCategory,
               onSelect: (id) {
@@ -80,12 +80,12 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
 
             NosProduitsWidget(selectedType: selectedType),
-            ],
+          ],
         ),
       ),
       bottomNavigationBar: BottomNavbarWidget(
         activeTab: 'accueil',
-        searchFocusNode: _searchFocusNode, // le focus sera géré directement dans BottomNavbarWidget
+        //searchFocusNode: _searchFocusNode, // le focus sera géré directement dans BottomNavbarWidget
       ),
     );
   }

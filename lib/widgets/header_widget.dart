@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../screens/login_register_page.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({super.key});
@@ -72,17 +73,21 @@ class HeaderWidget extends StatelessWidget {
             ),
           ),
 
+
+
           // === BOUTON CONNEXION ===
           SizedBox(
             height: size.height * 0.045,
             child: ElevatedButton(
               onPressed: () {
-                // Action connexion ici
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const LoginRegisterPage()),
+                );
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.indigo,
-                padding:
-                const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -97,8 +102,8 @@ class HeaderWidget extends StatelessWidget {
               ),
             ),
           ),
-        ],
-      ),
+      ]),
+
     );
   }
 }

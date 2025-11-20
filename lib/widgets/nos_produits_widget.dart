@@ -175,7 +175,6 @@ class _NosProduitsWidgetState extends State<NosProduitsWidget> {
           // 🔹 Bouton "Voir plus" avec GoRouter
           ElevatedButton.icon(
             onPressed: () {
-
               context.push('/produits/${widget.selectedType}');
             },
             style: ElevatedButton.styleFrom(
