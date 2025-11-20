@@ -27,11 +27,10 @@ class CategoryWidget extends StatelessWidget {
           const Center(
             child: Text(
               "Catégories",
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,),
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
           ),
           const SizedBox(height: 30),
-
 
           // Grille flexible : chaque carte garde la même taille et remplit la largeur
           GridView.builder(
@@ -62,16 +61,13 @@ class CategoryWidget extends StatelessWidget {
                             ? Colors.indigo.withOpacity(0.3)
                             : Colors.black12,
                         blurRadius: 5,
-                      )
+                      ),
                     ],
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        cat['icon'],
-                        style: const TextStyle(fontSize: 36),
-                      ),
+                      Text(cat['icon'], style: const TextStyle(fontSize: 36)),
                       const SizedBox(height: 6),
                       Text(
                         cat['name'],

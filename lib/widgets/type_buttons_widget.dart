@@ -16,14 +16,18 @@ class TypeButtonsWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         _buildButton(context, 'vente', Icons.vpn_key, 'Vente'),
-        const SizedBox(width: 12, height: 100,),
+        const SizedBox(width: 12, height: 100),
         _buildButton(context, 'location', Icons.home, 'Location'),
       ],
     );
   }
 
   Widget _buildButton(
-      BuildContext context, String type, IconData icon, String label) {
+    BuildContext context,
+    String type,
+    IconData icon,
+    String label,
+  ) {
     final isSelected = selectedType == type;
     return ElevatedButton.icon(
       onPressed: () => onChange(type),
@@ -31,17 +35,15 @@ class TypeButtonsWidget extends StatelessWidget {
       label: Text(
         label,
         style: TextStyle(
-            color: isSelected ? Colors.white : Colors.grey[700],
-            fontWeight: FontWeight.bold),
+          color: isSelected ? Colors.white : Colors.grey[700],
+          fontWeight: FontWeight.bold,
+        ),
       ),
       style: ElevatedButton.styleFrom(
-        backgroundColor:
-        isSelected ? Colors.indigo : Colors.white,
+        backgroundColor: isSelected ? Colors.indigo : Colors.white,
         shape: const StadiumBorder(),
         side: const BorderSide(color: Colors.indigo),
       ),
-
     );
-
   }
 }

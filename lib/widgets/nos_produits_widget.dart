@@ -17,17 +17,17 @@ class _NosProduitsWidgetState extends State<NosProduitsWidget> {
     {
       'image': 'assets/images/maison1.jpg',
       'description': 'Belle maison moderne avec jardin',
-      'prix': '45 000 000 FCFA'
+      'prix': '45 000 000 FCFA',
     },
     {
       'image': 'assets/images/app1.jpg',
       'description': 'Appartement spacieux au centre-ville',
-      'prix': '30 000 000 FCFA'
+      'prix': '30 000 000 FCFA',
     },
     {
       'image': 'assets/images/studio1.jpg',
       'description': 'Petit studio idéal pour étudiant',
-      'prix': '10 000 000 FCFA'
+      'prix': '10 000 000 FCFA',
     },
   ];
 
@@ -35,27 +35,27 @@ class _NosProduitsWidgetState extends State<NosProduitsWidget> {
     {
       'image': 'assets/images/maison2.jpg',
       'description': 'Maison à louer à Dakar',
-      'prix': '250 000 FCFA / mois'
+      'prix': '250 000 FCFA / mois',
     },
     {
       'image': 'assets/images/app2.jpg',
       'description': 'Appartement 3 chambres à Mermoz',
-      'prix': '350 000 FCFA / mois'
+      'prix': '350 000 FCFA / mois',
     },
     {
       'image': 'assets/images/studio2.jpg',
       'description': 'Studio meublé à louer à Pikine',
-      'prix': '120 000 FCFA / mois'
+      'prix': '120 000 FCFA / mois',
     },
     {
       'image': 'assets/images/studio3.jpg',
       'description': 'Appartement moderne à Sicap',
-      'prix': '400 000 FCFA / mois'
+      'prix': '400 000 FCFA / mois',
     },
     {
       'image': 'assets/images/villa.jpg',
       'description': 'Villa avec piscine à Yoff',
-      'prix': '800 000 FCFA / mois'
+      'prix': '800 000 FCFA / mois',
     },
   ];
 
@@ -106,7 +106,6 @@ class _NosProduitsWidgetState extends State<NosProduitsWidget> {
                   color: Colors.grey,
                 ),
               ),
-
             ),
           ),
 
@@ -145,8 +144,7 @@ class _NosProduitsWidgetState extends State<NosProduitsWidget> {
                 onPressed: currentIndex < produits.length - 1
                     ? () => setState(() => currentIndex++)
                     : null,
-                icon:
-                const Icon(Icons.arrow_forward_ios, color: Colors.indigo),
+                icon: const Icon(Icons.arrow_forward_ios, color: Colors.indigo),
               ),
             ],
           ),

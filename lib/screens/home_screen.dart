@@ -37,7 +37,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     fit: BoxFit.cover,
                   ),
                 ),
-                padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 16),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 40,
+                  horizontal: 16,
+                ),
                 child: Column(
                   children: [
                     const Text(
@@ -50,10 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     const Text(
                       "chez SenImmo",
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white70,
-                      ),
+                      style: TextStyle(fontSize: 18, color: Colors.white),
                     ),
                     const SizedBox(height: 20),
                     SearchBarWidget(),
