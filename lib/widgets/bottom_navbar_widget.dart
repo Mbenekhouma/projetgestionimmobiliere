@@ -46,6 +46,7 @@ class BottomNavbarWidget extends StatelessWidget {
             if (ModalRoute.of(context)?.settings.name != '/profil') {
               context.go('/profil');
             }
+
             break;
         }
       },

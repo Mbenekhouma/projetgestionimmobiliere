@@ -15,6 +15,7 @@ class UserProfilePage extends StatefulWidget {
 
 
 class _UserProfilePageState extends State<UserProfilePage> {
+  final FocusNode _searchFocusNode = FocusNode();
   final TextEditingController _searchController = TextEditingController();
 
 
@@ -142,12 +143,19 @@ class _UserProfilePageState extends State<UserProfilePage> {
           ),
         ],
       ),
+      // Appel du widget bottom_navbar_widget
       bottomNavigationBar: BottomNavbarWidget(
-        activeTab: 'accueil',
-        //searchFocusNode: _searchFocusNode, // le focus sera géré directement dans BottomNavbarWidget
+        activeTab: 'profil',
+        searchFocusNode: _searchFocusNode,
       ),
-
     );
+
+
+  }
+  @override
+  void dispose() {
+    _searchFocusNode.dispose();
+    super.dispose();
   }
 }
 

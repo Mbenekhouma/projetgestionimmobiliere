@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:projetgestionimmobilier/screens/bien_screen.dart';
 import 'package:projetgestionimmobilier/screens/category_screen.dart';
+import 'package:projetgestionimmobilier/screens/user_profile.dart';
 
 import '../screens/home_screen.dart';
 import '../screens/total_list_produit_screen.dart';
@@ -68,7 +69,15 @@ final routerProvider = Provider<GoRouter>((ref) {
           return CategoryScreen(category: category);
         },
 
-      )
+      ),
+      GoRoute(
+          path: '/profil',
+          name: 'profil',
+          builder: (context, state) {
+
+            return UserProfilePage();
+          }
+      ),
     ],
   );
 });
